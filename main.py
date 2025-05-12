@@ -29,3 +29,15 @@ def download_torrent(dl_url):
 @app.get("/")
 async def read_item(url: str = 200):
     download_torrent(url)
+    return """
+    <html>
+    <body>
+    </body>
+    <script>
+        window.onload = function () {
+            open(location, '_self').close();
+        };
+    </script>
+    </html>
+    
+    """
