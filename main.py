@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from urllib.parse import unquote
 import requests
 import re
@@ -26,7 +27,7 @@ def download_torrent(dl_url):
     else:
         print(f"Failed to download file. Status code: {response.status_code}")
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 async def read_item(url: str = 200):
     download_torrent(url)
     return """
