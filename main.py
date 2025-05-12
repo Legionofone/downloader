@@ -6,7 +6,7 @@ import re
 app = FastAPI()
 
 def download_torrent(dl_url):
-    file_path = "/downloads"
+    file_path = "/downloads/"
     url = unquote(dl_url)
     payload = {}
     headers = {}
